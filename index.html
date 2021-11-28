@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>SpicyKeys</title>
+        <link rel="icon" href="spicykeys.png" />
+        <style>
+            * {
+                color: #303030;
+                font-family: Courier;
+            }
+            a {
+                color: #0000ff;
+            }
+            #container {
+                max-width: 690px;
+                margin: 0 auto;
+            }
+            .demo {
+                border: 1px solid #c0c0c0;
+                border-collapse: collapse;
+                margin-bottom: 30px;
+            }
+            .demo th {
+                border: 1px solid #c0c0c0;
+                padding: 10px;
+                background: #f0f0f0;
+            }
+            .demo td {
+                border: 1px solid #c0c0c0;
+                padding: 10px;
+            }
+            .demo b {
+                color: #db2f48;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div style="text-align: center; margin-top: 40px;">
+                <img src="spicykeys.png" alt="" style="height: 40px; display: inline;" />
+                <h1 style="font-size: 50px; display: inline;">SpicyKeys</h1>
+                <img src="spicykeys.png" alt="" style="height: 40px; display: inline;" />
+                <p style="font-size: 30px; margin-bottom: 30px; line-height: 1;">
+                    Use hotkeys to open or move/copy files in Windows Explorer
+                </p>
+                <p style="font-size: 30px; margin-bottom: 0; font-weight: bold;">
+                    <a href="https://github.com/spicykeys/spicykeys.github.io/releases/download/spicykeys/spicykeys.zip">
+                        Download
+                    </a>
+                </p>
+                <p style="margin-bottom: 30px;">
+                    <a href="https://github.com/spicykeys/spicykeys.github.io/releases/download/spicykeys/spicykeys.ahk">
+                        AutoHotkey Source
+                    </a>
+                </p>
+            </div>
+            <p>
+                With SpicyKeys, you can select file(s)/folder(s) in Windows Explorer and press a hotkey to either open them in a predefined program or move/copy them to a predefined destination.
+            </p>
+            <p>Edit <b>spicykeys.txt</b> to define what the hotkeys will do, then run <b>spicykeys.exe</b> or, if it's already running, right-click the tray icon and click <b>Update Config</b>.</p>
+            <p>
+                Example config:
+            </p>
+            <pre style="border: 1px solid #c0c0c0; padding: 10px;">
+F7  open C:\Program Files\VideoLAN\VLC\vlc.exe
+\   open C:\Program Files (x86)\foobar2000\foobar2000.exe
+^+f run  C:\Program Files\Mozilla Firefox\firefox.exe
+^!k move !:\keep
+^!b copy D:\backup</pre>
+            <p>
+                Each line has three components: the hotkey, the mode, and the path.
+            </p>
+            <p>The hotkey is in <a href="https://www.autohotkey.com/docs/Hotkeys.htm">AutoHotkey's format</a>.</p>
+            <ul>
+                <li><b>!</b> is <b>Alt</b></li>
+                <li><b>^</b> is <b>Ctrl</b></li>
+                <li><b>+</b> is <b>Shift</b></li>
+                <li><b>#</b> is <b>Win</b></li>
+            </ul>
+            <p>Examples: <b>#F1</b> is <b>Win+F1</b>, <b>+!w</b> is <b>Shift+Alt+W</b>, <b>^Numpad0</b> is <b>Ctrl+Numpad0</b></p>
+            <p>The mode can be <b>open</b>, <b>run</b>, <b>move</b>, or <b>copy</b>.</p>
+            <p>In <b>open</b> or <b>run</b> mode, the path is to an executable.</p>
+            <p>In <b>open</b> mode, the selected file(s)/folder(s) will open with the executable.</p>
+            <p>In <b>run</b> mode, the executable will run without opening anything.</p>
+            <p>In <b>move</b> or <b>copy</b> mode, the path is the destination that the selected file(s)/folder(s) will be moved/copied to.</p>
+            <p>
+                The destination can be in one of five formats:
+            </p>
+            <table class="demo">
+                <thead>
+                    <tr>
+                        <th>Destination</th>
+                        <th style="white-space: nowrap;">
+                            D:\source\file.txt<br />
+                            will go to
+                        </th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>example</td>
+                        <td style="white-space: nowrap;">D:\source\<b>example</b>\file.txt</td>
+                        <td>The destination is within the source's folder.</td>
+                    </tr>
+                    <tr>
+                        <td>E:\example</td>
+                        <td style="white-space: nowrap;"><b>E:\example</b>\file.txt</td>
+                        <td>The destination is a full folder path.</td>
+                    </tr>
+                    <tr>
+                        <td>:\example</td>
+                        <td style="white-space: nowrap;">D:\<b>example</b>\file.txt</td>
+                        <td>As above, except the destination is on the same drive as the source.</td>
+                    </tr>
+                    <tr>
+                        <td>!E:\example</td>
+                        <td style="white-space: nowrap;"><b>E:\example</b>\source\file.txt</td>
+                        <td>The destination is added to the front of the source's path.</td>
+                    </tr>
+                    <tr>
+                        <td>!:\example</td>
+                        <td style="white-space: nowrap;">D:\<b>example</b>\source\file.txt</td>
+                        <td>As above, except the destination is on the same drive as the source.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="text-align: center; margin-bottom: 30px;">
+                <a href="mailto:keysspicy@gmail.com">
+                    Contact
+                </a>
+            </p>
+        </div>
+    </body>
+</html>
